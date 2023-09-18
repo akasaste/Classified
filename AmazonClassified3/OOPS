@@ -1,0 +1,34 @@
+User
+    id, name, phone, email, password, address, department, balance,status, createdOn
+
+    type: 1 -> Admin
+    type: 2 -> User i.e. Employee who wants to upload/buy a classified
+
+    Status can be changed by Admin for Users
+    status: 1 -> Activated
+    status: 2 -> Deactivated
+
+Classified
+          id,title, productName, condition, description, price,status,userId,createdON
+
+          Status ->  Initially as Pending and needs to be Approved/Rejected by Admin based on Classified Id
+                     for further Processing
+                     Unless Approved by Admin Users cant buy/sell that particular Classified
+          status: 1 -> Pending
+          status: 2 -> Approved
+          status: 3 -> Rejected
+
+
+Report
+      buyerId, buyerName, sellerId, SellerName,soldON, transactionAmount, classifiedID
+
+Payment
+       userid, cardNo, cvv
+       Used to deposit amount in user's balance
+
+Relationships
+    User IS Either Admin or Normal User | Inheritance :)
+    User has Classifieds          | 1 to many
+    User has Account       | 1 to many
+    Classified has User        | 1 to 1
+    Admin has Report      | 1 to many
